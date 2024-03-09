@@ -1,8 +1,7 @@
-import { setupBlitzServer } from "@blitzjs/next"
 import { AuthServerPlugin, PrismaStorage, simpleRolesIsAuthorized } from "@blitzjs/auth"
-import db from "db"
-import { BlitzLogger } from "blitz"
+import { setupBlitzServer } from "@blitzjs/next"
 import { RpcServerPlugin } from "@blitzjs/rpc"
+import db from "db"
 import { authConfig } from "./blitz-auth-config"
 
 const { api, getBlitzContext, useAuthenticatedBlitzContext, invoke } = setupBlitzServer({
@@ -14,7 +13,6 @@ const { api, getBlitzContext, useAuthenticatedBlitzContext, invoke } = setupBlit
     }),
     RpcServerPlugin({}),
   ],
-  logger: BlitzLogger({}),
 })
 
-export { api, getBlitzContext, useAuthenticatedBlitzContext, invoke }
+export { api, getBlitzContext, invoke, useAuthenticatedBlitzContext }
